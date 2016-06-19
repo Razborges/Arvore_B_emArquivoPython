@@ -56,14 +56,29 @@ inicial do arquivo ```arquivo.seek(0)```.
 
 Deve ser passado também o arquivo onde se deve buscar.
 
-###Inserção de Chave(objeto)
-Não implementado
+###Inserção de Chave(objeto) --- Apresentando ERRO no lado Maior da Raiz
+A função insere_arvore recebe três parâmetros:
+
+1.**Chave**
+
+Recebe um objeto chave que deseja ser inserido na arvore.
+
+2.**Ponteiro**
+
+Para iniciar a busca o ponteiro deve ser o caminho para a página raiz da árvore.
+
+3.**Arquivo:**
+
+Deve ser passado também o arquivo onde se deve inserir.
 
 ###Remoção de Chave(objeto)
 Não implementado
 
 ###Imprime Arvore ordenada
-Não implementado
+A função imprime_arvore_ordenado recebe somente um parâmetro, o arquivo que se deseja buscar a árvore e os valores que lá estão.
+
+###Imprime Arvore
+É uma função que existe no momento apenas para facilitar o debbug do arquivo.
 
 ##Testes
 No repositório também tem dois arquivos de teste:
