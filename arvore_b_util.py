@@ -88,6 +88,8 @@ def split(pagina, ponteiro, arquivo):
     else:
         arquivo.seek(pagina.ponteiro_pai)
         pagina_aux1.escreve_pagina(arquivo)
+        print('Chave inserida na árvore com sucesso.')
+        sys.exit()
 
 def remove_arvore(chave, ponteiro, arquivo):
     pass

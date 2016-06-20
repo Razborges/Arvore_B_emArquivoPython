@@ -35,7 +35,7 @@ arvore_aux = arvore.le_arvore(arquivo)
 arquivo.close()
 
 """TESTE DO MÉTODO DE INSERIR >"""
-arquivo2 = open('aarvore.dat', 'rb+')
+arquivo2 = open('arvore.dat', 'rb+')
 chave = Chave(19, 0)
 chave2 = Chave(45, 0)
 chave3 = Chave(40, 0)
