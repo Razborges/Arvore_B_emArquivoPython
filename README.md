@@ -57,7 +57,7 @@ inicial do arquivo ```arquivo.seek(0)```.
 
 Deve ser passado também o arquivo onde se deve buscar.
 
-###Inserção de Chave(objeto) --- Apresentando ERRO no lado Maior da Raiz
+###Inserção de Chave(objeto)
 A função insere_arvore efetua a inclusão da chave dentro do local adequado na árvore e escreve no arquivo, recebe três parâmetros:
 
 1.**Chave**
