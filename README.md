@@ -23,6 +23,7 @@ Estrutura do objeto pagina é composto por:
 - número de chaves presentes na página
 - coleção de objetos chaves
 - ponteiro para a posição da página com chave de MAIOR valor
+- ponteiro para a posição da página pai, facilitando o split
 
 ####Chave
 Estrutura do objeto chave é composto por:
@@ -40,7 +41,7 @@ Define as funções:
 - impressão de objeto chave (a implementar)
 
 ###Busca pela chave (valor)
-A função busca_arvore recebe três parâmetros:
+A função busca_arvore lê o arquivo onde está escrita a árvore e responde se a chave indicada está ou não na árvore. Recebe três parâmetros:
 
 1.**Chave:**
 
@@ -57,7 +58,7 @@ inicial do arquivo ```arquivo.seek(0)```.
 Deve ser passado também o arquivo onde se deve buscar.
 
 ###Inserção de Chave(objeto) --- Apresentando ERRO no lado Maior da Raiz
-A função insere_arvore recebe três parâmetros:
+A função insere_arvore efetua a inclusão da chave dentro do local adequado na árvore e escreve no arquivo, recebe três parâmetros:
 
 1.**Chave**
 
@@ -71,14 +72,29 @@ Para iniciar a busca o ponteiro deve ser o caminho para a página raiz da árvor
 
 Deve ser passado também o arquivo onde se deve inserir.
 
+###Split
+É uma função auxiliar da insere_arvore que efetua o split necessário e inclui a chave na página e escreve no arquivo. Recebe três parâmetros:
+
+1.**Pagina**
+
+Recebe a página que deverá sofrer o split.
+
+2.**Ponteiro**
+
+A posição onde essa página está no arquivo.
+
+3.**Arquivo**
+
+Arquivo onde será escrito as novas páginas.
+
 ###Remoção de Chave(objeto)
 Não implementado
 
 ###Imprime Arvore ordenada
-A função imprime_arvore_ordenado recebe somente um parâmetro, o arquivo que se deseja buscar a árvore e os valores que lá estão.
+A função imprime_arvore_ordenado faz a leitura da árvore que está no arquivo e apresenta os valores das chaves em orde crescente. Recebe somente um parâmetro, o arquivo em que se deseja ler a árvore.
 
 ###Imprime Arvore
-É uma função que existe no momento apenas para facilitar o debbug do arquivo.
+É uma função que existe no momento apenas para facilitar o debbug do arquivo. Imprime cada uma das páginas com seus respectivos detalhes.
 
 ##Testes
 No repositório também tem dois arquivos de teste:
