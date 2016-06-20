@@ -16,14 +16,14 @@ def busca_arvore(key, ponteiro, arquivo):
     for i in range(0, pagina_aux.qtd_chaves):
         if key == pagina_aux.chaves[i].chave:
             print("\nChave " + str(pagina_aux.chaves[i].chave) + " já se encontra na árvore.\n")
-            sys.exit()
+        return
     for i in range(0, pagina_aux.qtd_chaves):
         if key < pagina_aux.chaves[i].chave:
             if pagina_aux.chaves[i].pos_pagina_menor_chave == 0:
                 print("\nChave " + str(key) + " não encontrada nesta árvore.\n")
-                sys.exit()
             else:
                 busca_arvore(key, pagina_aux.chaves[i].pos_pagina_menor_chave, arquivo)
+            return
     busca_arvore(key, pagina_aux.pos_pagina_maior_chave, arquivo)
 
 def insere_arvore(chave, ponteiro, arquivo):
@@ -33,7 +33,7 @@ def insere_arvore(chave, ponteiro, arquivo):
     for i in range(0, pagina_aux.qtd_chaves):
         if chave.chave == pagina_aux.chaves[i].chave:
             print('Chave já está na árvore.')
-            sys.exit()
+            return
         if chave.chave < pagina_aux.chaves[i].chave:
             if pagina_aux.chaves[i].pos_pagina_menor_chave == 0:
                 pagina_aux.inclui_chave(chave)
@@ -41,12 +41,14 @@ def insere_arvore(chave, ponteiro, arquivo):
                     arquivo.seek(ponteiro)
                     pagina_aux.escreve_pagina(arquivo)
                     print('Chave inserida na árvore com sucesso.')
-                    sys.exit()
+                    return
                 else:
                     split(pagina_aux, ponteiro, arquivo)
+                    return
             else:
                 ponteiro = pagina_aux.chaves[i].pos_pagina_menor_chave
                 insere_arvore(chave, ponteiro, arquivo)
+                return
     if chave.chave > pagina_aux.chaves[pagina_aux.qtd_chaves - 1].chave:
         if pagina_aux.pos_pagina_maior_chave == 0:
             pagina_aux.inclui_chave(chave)
@@ -54,7 +56,6 @@ def insere_arvore(chave, ponteiro, arquivo):
                     arquivo.seek(ponteiro)
                     pagina_aux.escreve_pagina(arquivo)
                     print('Chave inserida na árvore com sucesso.')
-                    sys.exit()
             else:
                 split(pagina_aux, ponteiro, arquivo)
         else:
@@ -89,7 +90,6 @@ def split(pagina, ponteiro, arquivo):
         arquivo.seek(pagina.ponteiro_pai)
         pagina_aux1.escreve_pagina(arquivo)
         print('Chave inserida na árvore com sucesso.')
-        sys.exit()
 
 def remove_arvore(chave, ponteiro, arquivo):
     pass
